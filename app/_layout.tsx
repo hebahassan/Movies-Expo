@@ -1,6 +1,7 @@
 import { Stack } from "expo-router";
 import './globals.css';
 import {useFonts} from "expo-font";
+import {StatusBar} from "react-native";
 
 export default function RootLayout() {
   const [fontLaded] = useFonts({
@@ -9,9 +10,14 @@ export default function RootLayout() {
 
   if (!fontLaded) return null;
 
-  return <Stack >
-    <Stack.Screen
-        name="(tabs)"
-        options={{headerShown: false}} />
-  </Stack>;
+  return (
+      <>
+        <StatusBar hidden={true}/>
+        <Stack>
+          <Stack.Screen
+              name="(tabs)"
+              options={{headerShown: false}}/>
+        </Stack>
+      </>
+  )
 }
