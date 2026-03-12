@@ -1,3 +1,6 @@
+import {Movie} from "@/models/Movie";
+import {MovieDetails} from "@/models/MovieDetails";
+
 export const MOVIES_CONFIGS = {
     BASE_URL: "https://api.themoviedb.org/3",
     API_KEY: process.env.EXPO_PUBLIC_MOVIE_API_KEY,
@@ -23,4 +26,21 @@ export const getMovies = async ({ query }: { query: string }) => {
 
     const data = await response.json()
     return data.results
+}
+
+export const getMovieDetails = async (movieId: string): Promise<MovieDetails> => {
+    try {
+        const response = await fetch(`${MOVIES_CONFIGS.BASE_URL}/movie/${movieId}?api_key=${MOVIES_CONFIGS.API_KEY}`, {
+            method: 'GET',
+            headers: MOVIES_CONFIGS.HEADERS
+        })
+        if (!response.ok) {
+            throw new Error(response.statusText)
+        }
+
+        return await response.json()
+    } catch (e) {
+        console.error(e)
+        throw e
+    }
 }
