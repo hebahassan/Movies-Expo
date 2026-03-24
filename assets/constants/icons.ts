@@ -4,6 +4,8 @@ import person from '../icons/user.png'
 import save from '../icons/save.png'
 import star from '../icons/star.png'
 import logo from '../icons/logo.png'
+import add from '../icons/add.png'
+import added from '../icons/added.png'
 
 export const icons = {
     home,
@@ -11,5 +13,7 @@ export const icons = {
     person,
     save,
     star,
-    logo
+    logo,
+    add,
+    added
 }
