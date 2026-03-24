@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const STORAGE_KEY = "starredMovies";
 
-interface StarredMovie {
+export interface StarredMovie {
     id: number;
     title: string;
     release_date: string;
