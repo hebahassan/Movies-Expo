@@ -7,7 +7,7 @@ import {icons} from "@/assets/constants/icons";
 const MovieCard = ({ id, title, poster_path, vote_average, release_date }: Movie) => {
     return (
         <View className='flex-1 h-full'>
-            <Link href={`/movies/${id}`}>
+            <Link href={`/movies/${id}`} asChild>
                 <TouchableOpacity className='w-full'>
                     <Image source={{
                         uri: poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}`
